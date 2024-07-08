@@ -8,7 +8,7 @@ describe('MessagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MessagesComponent]
+      declarations: [MessagesComponent]
     })
     .compileComponents();
 
