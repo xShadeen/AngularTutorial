@@ -1,7 +1,7 @@
-<div>Usage of property binding</div>
 <h1 [innerHTML]="title"></h1>
 
-<div>Usage of two-way property binding</div>
+<div>Usage of two-way property binding (search)</div>
+
 <input [(ngModel)]="type"/>
 <p>{{type}}</p>
 
@@ -27,7 +27,7 @@
         </tr>
     </tbody>
 </table>
-<br><div>Usage of *ngFor and ngStyle </div><br>
+<br><div>Usage of *ngFor, *ngIf and ngStyle </div><br>
 <table>
     <thead>
         <tr>
@@ -37,10 +37,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let pokemon of pokemons; let i = index">
-            <td [style.backgroundColor]="(pokemon.isStylish ? '#800080':'')">{{pokemon.id}} </td>
-            <td [ngStyle]="{'backgroundColor':(!pokemon.isStylish ? 'blue' : '')}">{{pokemon.name}}</td>
-            <td>{{pokemon.type}}</td>
-        </tr>
+        <ng-container *ngFor="let pokemon of pokemons; let i = index">
+            <tr *ngIf="type === 'all' || pokemon.type === type">
+              <td [style.backgroundColor]="(pokemon.isStylish ? '#800080' : '')">{{pokemon.id}}</td>
+              <td [ngStyle]="{'backgroundColor': (!pokemon.isStylish ? 'blue' : '')}">{{pokemon.name}}</td>
+              <td>{{pokemon.type}}</td>
+            </tr>
+          </ng-container>
     </tbody>
 </table>

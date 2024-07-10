@@ -10,7 +10,7 @@ import { Pokemon } from '../../models/pokemon';
 export class PokemonListComponent implements OnInit{
   title!: String
   pokemons!: Pokemon[]
-  type: String = 'fire'
+  type: String = 'all'
   reference!: String
 
   constructor(private pokemonService: PokemonService){}
