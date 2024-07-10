@@ -1,0 +1,46 @@
+<div>Usage of property binding</div>
+<h1 [innerHTML]="title"></h1>
+
+<div>Usage of two-way property binding</div>
+<input [(ngModel)]="type"/>
+<p>{{type}}</p>
+
+<div>Usage of Template reference</div>
+<input type="text" #templateReference/>
+<button (click)="handleClick(templateReference.value)">Click</button>
+<p>{{reference}}</p>
+
+<div>Usage of *ngFor and ngClass </div><br>
+<table>
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pokemon of pokemons; let i = index">
+            <td [class.cool-bool]="pokemon.isCool">{{pokemon.id}} </td>
+            <td [ngClass]="{'cool-bool': pokemon.isCool===false}">{{pokemon.name}}</td>
+            <td>{{pokemon.type}}</td>
+        </tr>
+    </tbody>
+</table>
+<br><div>Usage of *ngFor and ngStyle </div><br>
+<table>
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pokemon of pokemons; let i = index">
+            <td [style.backgroundColor]="(pokemon.isStylish ? '#800080':'')">{{pokemon.id}} </td>
+            <td [ngStyle]="{'backgroundColor':(!pokemon.isStylish ? 'blue' : '')}">{{pokemon.name}}</td>
+            <td>{{pokemon.type}}</td>
+        </tr>
+    </tbody>
+</table>
