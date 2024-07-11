@@ -46,3 +46,9 @@
           </ng-container>
     </tbody>
 </table>
+<br><div>Usage of Input()</div>
+<input [(ngModel)]="pokemonName"/>
+<app-pokemon-detail *ngFor="let pokemon of pokemons" 
+[pokemonName]="pokemonName" 
+[pokemonDetail]="pokemon"
+(remove)="handleRemove($event)"></app-pokemon-detail>

@@ -12,6 +12,7 @@ export class PokemonListComponent implements OnInit{
   pokemons!: Pokemon[]
   type: String = 'all'
   reference!: String
+  pokemonName!: String
 
   constructor(private pokemonService: PokemonService){}
 
@@ -25,5 +26,11 @@ export class PokemonListComponent implements OnInit{
   handleClick(value: any){
     console.log(value)
     this.reference = value
+  }
+
+  handleRemove(event: Pokemon){
+    this.pokemons = this.pokemons.filter((pokemon: Pokemon) => {
+      return pokemon.id !== event.id
+    })
   }
 }

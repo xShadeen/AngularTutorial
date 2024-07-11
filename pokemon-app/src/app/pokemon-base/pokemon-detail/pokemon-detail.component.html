@@ -1,1 +1,9 @@
-<p>pokemon-detail works!</p>
+<div *ngIf="pokemonDetail.name === pokemonName">
+    <p>ID: {{pokemonDetail.id}}</p>
+    <p>Name: {{pokemonDetail.name}}</p>
+    <p>Type: {{pokemonDetail.type}}</p>
+    <p>Is Cool?: {{pokemonDetail.isCool}}</p>
+    <p>Is Stylish?: {{pokemonDetail.isStylish}}</p>
+    <div>Usage of Output()</div>
+    <button (click)="onRemove()">Remove pokemon</button>
+</div>
